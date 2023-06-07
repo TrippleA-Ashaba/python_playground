@@ -8,7 +8,7 @@ A number Guessing game. The user tries to guess a three-digit secret number only
 
 ```
     ===============================================================================
-    I am thining of a 3-digit number. Try to guess what it is.
+    I am thinking of a 3-digit number. Try to guess what it is.
     Here are some clues:
     When I say :          That means:
     PICO                  One digit is correct but in the wrong position
