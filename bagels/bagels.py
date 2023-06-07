@@ -23,24 +23,6 @@ def get_random_number():
     return random.randint(MIN_NUM, MAX_NUM)
 
 
-# def validate_input():
-#     """
-#     Check if the user input is an integer in the range 100 - 999. Raise ValueError if input not an integer.
-#     """
-
-#     while True:
-#         try:
-#             user_input = int(input("Guess the Secret Number: > "))
-#             if not 100 <= user_input <= 999:
-#                 print("\n⚠️⚠️  Number must be in Range 100 -- 999 ⚠️⚠️\n")
-#             else:
-#                 return user_input
-
-
-#         except ValueError:
-#             print("\n⚠️⚠️ Invalid input! Please enter a valid integer. ⚠️⚠️\n")
-
-
 def validate_input():
     """
     Check if the user input is an integer in the range 100 - 999. Raise ValueError if input not an integer.
@@ -48,20 +30,19 @@ def validate_input():
 
     attempts = 0  # Track the number of attempts
 
-    while attempts < 3:  # Allow 3 attempts before breaking out
+    while attempts < 3:  # Allow 3 attempts before raising ValueError
         try:
             user_input = int(input("Guess the Secret Number: > "))
             if not 100 <= user_input <= 999:
-                print("Invalid input. Exceeded maximum number of attempts.")
+                print("\n⚠️⚠️ Invalid input. ⚠️⚠️")
                 attempts += 1  # Increment the attempts count
             else:
                 return user_input
         except ValueError:
-            print("\n⚠️⚠️ Invalid input. Enter an Integer ⚠️⚠️\n")
-
+            print("\n⚠️⚠️ Invalid input. ⚠️⚠️")
             attempts += 1  # Increment the attempts count
 
-        raise ValueError("Invalid input. Exceeded maximum number of attempts.")
+    raise ValueError("Invalid input. Exceeded maximum number of attempts.")
 
 
 def check_guess(secret_number, user_guess):

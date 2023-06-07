@@ -16,7 +16,9 @@ class BagelTestCase(unittest.TestCase):
             self.assertEqual(user_input, 123)
 
     def test_validate_input_invalid(self):
-        with patch("builtins.input", side_effect=["abc", "def", "456"]):
+        with patch(
+            "builtins.input", side_effect=["abc", "099", "1000"]
+        ):  # non integers and values below 100 and above 999
             with patch("sys.stdout", new=StringIO()) as output:
                 with self.assertRaises(ValueError) as context:
                     validate_input()
@@ -24,13 +26,15 @@ class BagelTestCase(unittest.TestCase):
                 expected_error_message = (
                     "Invalid input. Exceeded maximum number of attempts."
                 )
-                actual_error_message = str(context.exception).strip()
+                actual_error_message = str(context.exception)
 
                 self.assertEqual(expected_error_message, actual_error_message)
 
                 self.assertEqual(
-                    output.getvalue().strip(),
-                    "⚠️⚠️ Invalid input. Enter an Integer ⚠️⚠️",
+                    output.getvalue()
+                    .strip()
+                    .split("\n")[0],  # The first instance of the output
+                    "⚠️⚠️ Invalid input. ⚠️⚠️",
                 )
 
     def test_check_guess_correct(self):
