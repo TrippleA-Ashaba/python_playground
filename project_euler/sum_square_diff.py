@@ -27,4 +27,4 @@ def square_of_sum2(n):
 
 if __name__ == "__main__":
     # print(square_of_sum(11) - sum_of_squares(11))
-    print(square_of_sum2(11) - sum_of_squares2(11))
+    print(square_of_sum2(100) - sum_of_squares2(100))
