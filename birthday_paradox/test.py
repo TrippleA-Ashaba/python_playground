@@ -1,13 +1,10 @@
 import calendar
 import unittest
-from io import StringIO
-from unittest.mock import patch
 
 from birthday_paradox import (
     find_first_duplicate,
     generate_birthdays,
     get_random_birthday,
-    validate_input,
 )
 
 

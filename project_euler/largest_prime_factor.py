@@ -64,5 +64,5 @@ def largest_prime_factor(num):
 
 
 if __name__ == "__main__":
-    num = 1000002
+    num = 600851475143
     print(largest_prime_factor(num))

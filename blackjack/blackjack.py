@@ -1,6 +1,7 @@
-from art import logo
 import random
 import time
+
+from art import logo
 
 RULES = """
 ============================================================================ 
